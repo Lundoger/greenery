@@ -8,4 +8,4 @@ My single-page website about furniture is a contemporary space designed using th
 - Responsive adaptive
 - Swiper.js
 # Preview:
-[NFT-maketplace](https://nft-maketplace-lundoger.netlify.app/)
+[Greenery](https://greenery-lundoger.netlify.app/)
