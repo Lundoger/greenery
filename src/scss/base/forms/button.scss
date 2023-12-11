@@ -1,0 +1,31 @@
+//<BUTTONS (a.btn+tab)>
+// Сніппет (HTML): btn
+
+.button {
+	display: inline-flex;
+	font-family: "Open Sans";
+	font-weight: 600;
+	font-size: rem(14);
+	line-height: 1.33;
+	letter-spacing: 0.045em;
+	color: $darkGreenColor;
+	padding: rem(10) rem(29);
+	border: rem(2) solid $darkGreenColor;
+	border-radius: rem(3);
+	transition: all 0.3s ease 0s;
+	justify-content: center;
+	max-width: rem(200);
+	&--small {
+		font-size: rem(15);
+		padding: rem(10) rem(16);
+	}
+	@media (any-hover: hover) {
+		&:hover {
+			color: #fff;
+			background-color: $darkGreenColor;
+		}
+	}
+	&._fw {
+		width: 100%;
+	}
+}

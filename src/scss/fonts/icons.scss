@@ -1,0 +1,74 @@
+%ic {
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+[class*="_icon-"] {
+	&:before {
+		@extend %ic;
+		display: block;
+	}
+}
+
+._icon-about:before {
+	content: "\e900";
+}
+._icon-blog:before {
+	content: "\e901";
+}
+._icon-cart:before {
+	content: "\e902";
+}
+._icon-cart-product:before {
+	content: "\e903";
+}
+._icon-facebook:before {
+	content: "\e904";
+}
+._icon-gallery:before {
+	content: "\e905";
+}
+._icon-heart:before {
+	content: "\e906";
+}
+._icon-home:before {
+	content: "\e907";
+}
+._icon-increase:before {
+	content: "\e908";
+}
+._icon-inst:before {
+	content: "\e909";
+}
+._icon-location:before {
+	content: "\e90a";
+}
+._icon-login:before {
+	content: "\e90b";
+}
+._icon-mail:before {
+	content: "\e90c";
+}
+._icon-rating-product:before {
+	content: "\e90d";
+}
+._icon-share:before {
+	content: "\e90e";
+}
+._icon-shop:before {
+	content: "\e90f";
+}
+._icon-twitter:before {
+	content: "\e910";
+}
+._icon-user:before {
+	content: "\e911";
+}
+._icon-youtube:before {
+	content: "\e912";
+}

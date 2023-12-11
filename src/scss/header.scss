@@ -1,0 +1,165 @@
+//====================================================================================================
+.header {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	z-index: 10;
+	@include adaptiveValue("padding-top", 28, 20);
+	@include adaptiveValue("padding-bottom", 28, 20);
+	@include adaptiveValue("height", 82, 63);
+	top: -100%;
+	.loaded & {
+		top: 0;
+		transition: top 0.6s ease 0s, background-color 0.5s ease 0s;
+	} 
+	@media (max-width:$mobileSmall){
+		position: fixed;
+		&._header-scroll {
+			background-color: rgba(255, 255, 255, 1);
+		}
+	}
+	&__container {
+		display: flex;
+		align-items: flex-start;
+		gap: rem(25);
+		max-width: rem(1055);
+		@media (max-width:$mobileSmall){
+			gap: rem(35); 
+		}
+	}
+
+	&__register {
+	}
+
+	&__actions {
+	}
+}
+.register-header {
+	flex: 1 1 auto;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	@include adaptiveValue("column-gap", 40, 15, 0, 1045, 479.98);
+	row-gap: rem(10);
+	@media (max-width:$mobileSmall){
+		column-gap: rem(25); 
+	}
+	&__link {
+		white-space: nowrap;
+		display: flex;
+		flex-direction: row-reverse;
+		@include adaptiveValue("gap", 12, 8);
+		align-items: center;
+		text-transform: uppercase;
+		font-family: "Open Sans";
+		font-weight: 600;
+		line-height: 1.62;
+		letter-spacing: -0.04em;
+		color: $headerMenuColor;
+		@include adaptiveValue("font-size", 16, 14);
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: #0372aa;
+				&::before {
+					color: #0372aa;
+				}
+			}
+		}
+		&::before {
+			color: #fff;
+			font-size: rem(17);
+			transition: all 0.3s ease 0s;
+		}
+		@media (max-width: em(840)){
+			&::before{
+				color: #264A51;				
+			}	  
+		}
+		@media (max-width:$mobileSmall){
+			&::before{
+				@include adaptiveValue("font-size", 26, 22, 0, 479.98, 320);
+			}
+			 span {
+				display: none;
+			 } 
+		}
+	}
+}
+.actions-header {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	@include adaptiveValue("column-gap", 35, 20, 0, 1045, 670);
+	row-gap: rem(10);
+	@media (max-width: em(670)){
+		column-gap: rem(22); 
+	}
+	&__link {
+		white-space: nowrap;
+		display: flex;
+		@include adaptiveValue("gap", 14, 8);
+		align-items: center;
+		text-transform: uppercase;
+		font-family: "Open Sans";
+		font-weight: 600;
+		line-height: 1.62;
+		letter-spacing: -0.04em;
+		color: $headerMenuColor;
+		@include adaptiveValue("font-size", 16, 14);
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover) {
+			&:hover {
+				color: #0372aa;
+				&::before {
+					color: #0372aa;
+				}
+			}
+		}
+		&::before {
+			color: #fff;
+			font-size: rem(18);
+			transition: all 0.3s ease 0s;
+		}
+		&--share {
+			span {
+				&::after {
+					content: attr(data-users-amount);
+				}
+			}
+		}
+		&--cart {
+			span {
+				&::after {
+					content: attr(data-full-price);
+				}
+			}
+		}
+		&--share,
+		&--cart {
+			span {
+				&::after {
+					font-weight: 600;
+					font-size: rem(8);
+					line-height: math.div(11, 8);
+					letter-spacing: -0.02em;
+					color: #dd6060;
+					padding-left: rem(2);
+				}
+			}
+		}
+		@media (max-width: em(840)){
+			&::before{
+				color: #264A51;				
+			}	  
+		}
+		@media (max-width: em(670)){
+			&::before{
+				@include adaptiveValue("font-size", 28, 23, 0, 670, 320);
+			}
+			span {
+				display: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,108 @@
+//<FORM>
+// Сніппет (HTML):
+.form {
+	display: flex;
+	align-items: center;
+	box-shadow: 0px 15px 30px rgba(34, 34, 34, 0.11);
+	border-radius: rem(50);
+	position: relative;	
+	@media (min-width:em(420)){
+		background: #DAE6EE;
+	}
+	@media (max-width: em(420)){
+		flex-direction: column;
+		border-radius: rem(10);
+		row-gap: rem(10);
+	}
+	&__row {
+	}
+	&__column {
+	}
+	&__line {
+	}
+	&__input {
+		padding: 0 rem(27);
+		height: rem(46);
+		border-radius: rem(50);
+		outline: none;
+		letter-spacing: 0.045em;
+		color: rgb(77, 77, 77);
+		&::placeholder {
+			color: rgba(69, 94, 101, 0.47);
+		}
+		@media (min-width:em(420)){
+			flex: 1 1 auto;
+			background: transparent;	  
+		}
+		@media (max-width: em(420)){
+			width: 100%;
+			border-radius: rem(10);
+			background-color: #fff;
+		}
+	}
+	&__button {
+		background: rgba(38, 74, 81, 0.89);
+		box-shadow: -2px 15px 40px rgba(0, 0, 0, 0.11);
+		border-radius: rem(50);
+		font-weight: 500;
+		font-size: rem(17);
+		letter-spacing: 0.045em;
+		color: #FFFFFF;
+		padding: rem(9) rem(30);
+		transition: background 0.3s ease 0s;
+		@media (any-hover: hover){
+			&:hover{
+				background: rgba(18, 48, 54, 0.89);
+			}
+		}
+		@media (max-width: em(420)){
+			border-radius: rem(10);
+			width: 100%;
+		}	
+	}
+	&__error {
+		position: absolute;
+		bottom: 0;
+		left: rem(20);
+		transform: translate(0,130%);
+		color: red;
+		font-weight: 500;
+	}
+}
+//</FORM>
+
+// <BUTTONS>
+// Сніппет (HTML): btn
+@import "button";
+
+// <INPUTS>
+// Сніппет (HTML): inp
+// @import "input";
+
+// <CHECK>
+// Сніппет (HTML): chk
+// @import "checkbox";
+
+// <RADIO>
+// Сніппет (HTML): opt
+// @import "radio";
+
+// <SELECT>
+// Сніппет (HTML): sel
+@import "select";
+
+// <RATING>
+// Сніппет (HTML): rating
+@import "rating";
+
+// <QUANTITY>
+// Сніппет (HTML): qa
+// @import "quantity";
+
+// <RANGE>
+// Сніппет (HTML):
+// @import "range";
+
+// <CALENDAR>
+// Сніппет (HTML):
+// @import "datepicker";

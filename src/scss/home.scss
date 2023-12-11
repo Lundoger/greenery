@@ -1,0 +1,1049 @@
+//===================================================================================================
+.page {
+	&__grid {
+		position: relative;
+	}
+	&__main-screen {
+	}
+	&__brands {
+		@include adaptiveValue("margin-bottom", 93, 40);
+	}
+	&__goods {
+		@include adaptiveValue("margin-bottom", 115, 50);
+	}
+	&__discount {
+		@include adaptiveValue("margin-bottom", 115, 50);
+	}
+	&__catalog {
+		@include adaptiveValue("margin-bottom", 130, 60);
+	}
+	&__get-off {
+		@include adaptiveValue("margin-bottom", 115, 40);
+	}
+}
+//========================================================================================================================================================
+.sidebar {
+	display: flex;
+	flex-direction: column;
+	@media (min-width: $tablet) {
+		width: rem(165);
+	}
+	@media (max-width: $tablet) and (min-width: $mobileSmall) {
+		width: rem(100);
+	}
+	@media (min-width: $mobileSmall) {
+		@include adaptiveValue("padding-top", 30, 12);
+		background: #002a32;
+	}
+	position: relative;
+	z-index: 10;
+	height: 100%;
+	grid-area: sidebar;
+	&__body {
+		position: fixed;
+		height: 100%;
+		top: 0;
+		left: 0;
+		overflow: auto;
+		display: flex;
+		flex-direction: column;
+		padding-top: rem(20);
+		scrollbar-width: none;
+		&::-webkit-scrollbar {
+			width: 0;
+		}
+		width: rem(165);
+		@media (max-width: $tablet) and (min-width: $mobileSmall) {
+			width: rem(100);
+		}
+		@media (min-width: $mobileSmall) {
+			padding-bottom: rem(20);
+		}
+		@media (max-width: $mobileSmall) {
+			width: 100%;
+			background-color: #002a32;
+			z-index: 20;
+			top: -150%;
+			transition: top 0.3s ease 0s;
+			&::before {
+				content: "";
+				width: 100%;
+				height: rem(95);
+				background-color: #002a32;
+				position: fixed;
+				top: -100%;
+				left: 0;
+				z-index: 2;
+				transition: top 0.3s ease 0s;
+			}
+			.menu-open & {
+				top: 0;
+				&::before {
+					top: 0;
+				}
+			}
+		}
+	}
+
+	&__logo {
+		display: inline-block;
+		align-self: center;
+		width: rem(95);
+		height: rem(43);
+		opacity: 0;
+		transform: translate(0, 100%);
+		.loaded & {
+			opacity: 1;
+			transform: translate(0px,0px);
+			transition: all 0.6s ease 0s;
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+		@media (max-width: $tablet) {
+			width: rem(80);
+			height: rem(36);
+		}
+		@media (min-width: $mobileSmall) {
+			@include adaptiveValue("margin-bottom", 70, 30);
+		}
+		@media (max-width: $mobileSmall) {
+			width: rem(120);
+			height: rem(55);
+			position: fixed;
+			z-index: 5;
+		}
+	}
+
+	&__list {
+		@media (max-width: $mobileSmall) {
+			padding-top: rem(80);
+			padding-bottom: rem(10);
+		}
+	}
+
+	&__item {
+		opacity: 0;
+		transform: translate(0, 100%);
+		.loaded & {
+			opacity: 1;
+			transform: translate(0px,0px);
+			transition: all 0.6s ease;
+			&:nth-child(1) {
+				transition-delay: 0.1s;
+			}
+			&:nth-child(2) {
+				transition-delay: 0.2s;
+			}
+			&:nth-child(3) {
+				transition-delay: 0.3s;
+			}
+			&:nth-child(4) {
+				transition-delay: 0.4s;
+			}
+			&:nth-child(5) {
+				transition-delay: 0.5s;
+			}
+			&:nth-child(6) {
+				transition-delay: 0.6s;
+			}
+		}
+	}
+
+	&__link {
+		padding-right: rem(10);
+		padding-left: rem(10);
+		@include adaptiveValue("padding-top", 20, 15, 0, 479, 320);
+		@include adaptiveValue("padding-bottom", 20, 15, 0, 479, 320);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		row-gap: rem(5);
+		font-family: "Open Sans";
+		line-height: 1.5;
+		letter-spacing: 0.045em;
+		color: #8999a1;
+		transition: all 0.3s ease 0s;
+		&.active {
+			background: #3c6c7f;
+			color: #b6ddff;
+			&::before {
+				color: #b6ddff;
+			}
+		}
+		&::before {
+			color: #cad3db;
+			font-size: rem(30);
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background: #3c6c7f;
+				color: #b6ddff;
+				&::before {
+					color: #b6ddff;
+				}
+			}
+		}
+		@media (max-width: $tablet) and (min-width: $mobileSmall) {
+			span {
+				display: none;
+			}
+		}
+	}
+}
+
+.icon-menu {
+	display: none;
+	@media (max-width: $mobileSmall) {
+		display: block;
+		position: relative;
+		width: rem(30);
+		height: rem(18);
+		z-index: 21;
+		@media (any-hover: none) {
+			cursor: default;
+		}
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: rem(2);
+			background-color: #264a51;
+			transition: all 0.3s ease 0s;
+			.menu-open & {
+				background-color: #fff;
+			}
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+			top: calc(50% - rem(1));
+		}
+		.menu-open & {
+			span {
+				width: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				top: calc(50% - rem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - rem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
+//====================================================================================================
+.main-screen {
+	@include adaptiveValue("padding-top", 100, 80);
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	&__container {
+		flex: 1 1 100%;
+		width: 100%;
+		max-width: rem(1055);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__body {
+		position: relative;
+		z-index: 9;
+		@include adaptiveValue("max-width", 400, 300);
+		.loaded & {
+			animation: titleAnimation 1.5s ease-in-out;
+		}
+		@keyframes titleAnimation {
+			0% {
+				opacity: 0;
+				transform: translate(-200%, 0) scale(0.7);
+			}
+			30% {
+				opacity: 0.3;
+				transform: translate(-200%, 0) scale(0.7);
+			}
+			70% {
+				opacity: 0.6;
+				transform: translate(0, 0) scale(0.7);
+			}
+			100% {
+				opacity: 1;
+				transform: translate(0, 0) scale(1);
+			}
+		}
+	}
+
+	&__pretitle {
+		font-family: "Dancing Script";
+		font-weight: 700;
+		font-size: rem(20);
+		line-height: 1.5;
+		letter-spacing: 0.045em;
+		color: #4e6e77;
+		&:not(:last-child) {
+			margin-bottom: rem(9);
+		}
+	}
+
+	&__title {
+		font-family: "Dosis";
+		font-weight: 600;
+		@include adaptiveValue("font-size", 50, 36);
+		line-height: 1.33;
+		letter-spacing: 0.045em;
+		color: $darkGreenColor;
+		&:not(:last-child) {
+			margin-bottom: rem(18);
+		}
+	}
+
+	&__button {
+	}
+
+	&__slider {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	&__wrapper {
+	}
+
+	&__slide {
+		position: relative;
+		@media (max-width: em(840)) {
+			&::before {
+				content: "";
+				width: 100%;
+				height: 100%;
+				background-color: rgba($color: #fff, $alpha: 0.4);
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 5;
+			}
+		}
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: 81% 50%;
+		}
+	}
+
+	&__swiper-pagination {
+		position: absolute;
+		bottom: 7%;
+		left: 50%;
+		transform: translate(-50%, 0);
+		display: flex;
+		align-items: center;
+		column-gap: rem(15);
+	}
+	.swiper-pagination-bullet {
+		display: block;
+		width: rem(14);
+		height: rem(14);
+		border-radius: 50%;
+		border: rem(1) solid #677f8b;
+		transition: all 0.3s ease 0s;
+		cursor: pointer;
+		&-active {
+			background-color: #677f8b;
+		}
+		@media (max-width: $mobileSmall) {
+			width: rem(10);
+			height: rem(10);
+		}
+	}
+}
+.slide {
+	position: relative;
+	@media (min-width: em(600)) {
+		&__info {
+			position: absolute;
+			top: 25%;
+			right: 40%;
+			z-index: 10;
+			&--second-slide {
+				top: 35%;
+				right: 40%;
+			}
+			@media (max-width: em(720)) {
+				top: 25%;
+				right: 50%;
+				&--second-slide {
+					right: 42%;
+					top: 27%;
+				}
+			}
+		}
+		&__arrow {
+			position: absolute;
+			top: 50%;
+			right: -20%;
+			transform: translate(100%, 0);
+			width: rem(59);
+			height: rem(133);
+			@media (max-width: em(690)) {
+				height: rem(110);
+				.slide__info--second-slide & {
+					height: rem(160);
+				}
+			}
+		}
+		&__description {
+			font-family: "Dosis";
+			font-weight: 500;
+			font-size: rem(16);
+			line-height: math.div(20, 16);
+			letter-spacing: 0.045em;
+			color: #4e6e77;
+			max-width: rem(125);
+			opacity: 0;
+			transform: translate(-50%, 0);
+			.swiper-slide-active & {
+				transition: all 0.6s ease 1.6s;
+				opacity: 1;
+				transform: translate(0px, 0px);
+			}
+		}
+	}
+}
+@media (min-width: em(600)) {
+	.arrow {
+		&__items {
+			width: 100%;
+			height: rem(2);
+			background-color: #fff;
+			position: absolute;
+			top: 0;
+			left: -8%;
+			transform: scaleX(0);
+			&::before,
+			&::after {
+				content: "";
+				width: 0;
+				height: rem(2);
+				background-color: #fff;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			&::before {
+				transform: rotate(-40deg) translate(10%, -100%);
+			}
+			&::after {
+				transform: rotate(40deg) translate(10%, 100%);
+			}
+		}
+
+		&__rectangle {
+			height: 0;
+			width: rem(2);
+			background-color: #fff;
+			position: absolute;
+			right: rem(3.2);
+			bottom: 0;
+		}
+
+		&__circle {
+			width: rem(8);
+			height: rem(8);
+			border-radius: 50%;
+			background-color: #fff;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			transform: scale(0);
+			transition: all 0.7s ease 0s;
+			&::before {
+				content: "";
+				width: rem(4);
+				height: rem(4);
+				border-radius: 50%;
+				background-color: #71b3c6;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%) scale(0);
+			}
+		}
+		.swiper-slide-active & {
+			&__items {
+				transform: scaleX(1);
+				transition: transform 0.5s ease 0.7s;
+				&::before {
+					width: rem(8);
+					transition: all 0.4s ease 1.2s;
+				}
+				&::after {
+					width: rem(8);
+					transition: all 0.4s ease 1.5s;
+				}
+			}
+			&__rectangle {
+				height: 100%;
+				transition: all 0.7s ease 0.4s;
+			}
+			&__circle {
+				transform: scale(1);
+				transition: all 0.7s ease 0.2s;
+				&::before {
+					transform: translate(-50%, -50%) scale(1);
+					transition: all 0.7s ease 0.2s;
+				}
+			}
+		}
+	}
+}
+//========================================================================================================================================================
+.brands {
+	background: #d2e2ee;
+	@include adaptiveValue("padding-top", 30, 15);
+	@include adaptiveValue("padding-bottom", 30, 15);
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		row-gap: rem(30);
+		@include adaptiveValue("column-gap", 70, 30, 0, 1140, 768);
+		@media (max-width: $mobile) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+		@media (max-width: $mobileSmall) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	&__logo {
+		width: 100%;
+		height: 100%;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+}
+//========================================================================================================================================================
+.goods {
+	&__container {
+	}
+
+	&__title {
+		font-family: "Dosis";
+		font-weight: 600;
+		@include adaptiveValue("font-size", 46, 30);
+		line-height: 1.33;
+		letter-spacing: 0.045em;
+		color: #264a51;
+		text-align: center;
+		@include adaptiveValue("margin-bottom", 30, 20);
+		opacity: 0;
+		transform: translate(-40%,0px);
+		&._watcher-view {
+			opacity: 1;
+			transform: translate(0px,0px);
+			transition: all 0.5s ease 0s;
+		}
+	}
+}
+.product {
+	&__navigation {
+		white-space: nowrap;
+		overflow: auto;
+		display: flex;
+		align-items: center;
+		gap: rem(15);
+		&:not(:last-child) {
+			margin-bottom: rem(30);
+		}
+		opacity: 0;
+		transform: translate(0, 100%);
+		&._watcher-view {
+			opacity: 1;
+			transform: translate(0px,0px);
+			transition: all 0.5s ease 0s;
+		}
+	}
+
+	&__title {
+		font-family: "Open Sans";
+		font-weight: 300;
+		font-size: rem(17);
+		line-height: math.div(23, 17);
+		letter-spacing: 0.045em;
+		color: #748289;
+		padding: rem(6) rem(23);
+		border: rem(2) solid transparent;
+		border-radius: rem(2);
+		transition: all 0.3s ease 0s;
+		&._tab-active {
+			border: rem(2) solid #3e5860;
+			color: #264a51;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: #264a51;
+			}
+		}
+	}
+
+	&__content {
+	}
+
+	&__wrap-body {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: rem(30);
+		row-gap: rem(20);
+		@media (max-width: em(1150)) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (max-width: em(670)) {
+			grid-template-columns: auto;
+		}
+	}
+
+	&__item {
+	}
+}
+.item-product {
+	@media (any-hover: hover) {
+		&:hover {
+			.item-product__preview {
+				background-color: #dde9f0;
+			}
+		}
+	}
+	opacity: 0;
+	transform: translate(0, 50%);
+	&._watcher-view {
+		opacity: 1;
+		transform: translate(0px,0px);
+		transition: all 0.5s ease 0s;
+	}
+	&__preview {
+		@include adaptiveValue("height", 311, 311);
+		background: #f1f6f9;
+		box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.15);
+		border-radius: rem(3);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-end;
+		row-gap: rem(30);
+		position: relative;
+		@include adaptiveValue("padding", 20, 10);
+		margin-bottom: rem(12);
+		transition: background-color 0.3s ease 0s;
+	}
+
+	&__labels {
+		width: rem(85);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: absolute;
+		top: 0;
+		right: 0;
+		row-gap: rem(15);
+		@include adaptiveValue("margin-top", 30, 10);
+		@media (max-width: $mobile) {
+			flex-direction: column-reverse;
+		}
+	}
+
+	&__label {
+		font-weight: 500;
+		font-size: rem(12);
+		line-height: 1.72;
+		letter-spacing: 0.045em;
+		color: #ffffff;
+		width: rem(38);
+		height: rem(38);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__label--sale {
+		background: #264a51;
+		border-radius: 50%;
+	}
+
+	&__label--new {
+		background: #71b3c6;
+		border-radius: 50%;
+		color: #d4dce2;
+	}
+
+	&__label--ends {
+		width: 100%;
+		height: rem(30);
+		background: #264a51;
+	}
+
+	&__image {
+		width: rem(150);
+		height: rem(150);
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: rem(16);
+		flex-wrap: wrap;
+	}
+
+	&__button {
+		width: rem(38);
+		height: rem(38);
+		background: #71b3c6;
+		border-radius: rem(2);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.3s ease 0s;
+		&::before {
+			color: #d4dce2;
+			font-size: rem(20);
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: #d4dce2;
+				&::before {
+					color: #71b3c6;
+				}
+			}
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__name {
+	}
+	&__link-name {
+		line-height: 1.33;
+		letter-spacing: 0.045em;
+		color: #264a51;
+		&:not(:last-child) {
+			margin-bottom: rem(2);
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	&__price {
+		line-height: 1.33;
+		letter-spacing: 0.045em;
+		color: #264a51;
+		&:not(:last-child) {
+			margin-bottom: rem(2);
+		}
+	}
+}
+//========================================================================================================================================================
+.discount {
+	position: relative;
+	background: url("@img/main-screen/slides/02.jpg") 82% 50% / cover no-repeat;
+	display: flex;
+	flex-direction: column;
+	@media (max-width: $tablet) {
+		&::before {
+			content: "";
+			width: 100%;
+			height: 100%;
+			background-color: rgba(255, 255, 255, 0.356);
+			position: absolute;
+			top: 0;
+			left: 0;
+			pointer-events: none;
+		}
+	}
+	&__container {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		flex: 1 1 auto;
+		width: 100%;
+		justify-content: center;
+	}
+
+	&__content {
+		text-align: center;
+		max-width: rem(580);
+		&._watcher-view {
+			animation: titleAnimation 1.5s ease-in-out;
+		}
+	}
+
+	&__sale {
+		font-family: "Dosis";
+		font-weight: 800;
+		@include adaptiveValue("font-size", 90, 60);
+		letter-spacing: 0.045em;
+		color: #f3b705;
+		opacity: 0.5;
+	}
+
+	&__title {
+		font-family: "Dosis";
+		font-weight: 600;
+		@include adaptiveValue("font-size", 60, 28);
+		line-height: 1.33;
+		letter-spacing: 0.045em;
+		color: #264a51;
+		&:not(:last-child) {
+			margin-bottom: rem(15);
+		}
+	}
+
+	&__description {
+		line-height: 1.72;
+		letter-spacing: 0.045em;
+		color: #335e74;
+		max-width: rem(400);
+		margin: 0 auto;
+		&:not(:last-child) {
+			margin-bottom: rem(24);
+		}
+	}
+
+	&__button {
+		@media (max-width: em(420)) {
+			width: 100%;
+			max-width: none;
+		}
+	}
+}
+//========================================================================================================================================================
+.catalog {
+	&__container {
+		display: grid;
+		@include adaptiveValue("row-gap", 115, 40);
+	}
+
+	&__item {
+	}
+}
+.item-catalog {
+	display: flex;
+	align-items: center;
+	@media (max-width: $mobile) {
+		flex-direction: column;
+		row-gap: rem(15);
+		&:nth-child(even) {
+			flex-direction: column-reverse;
+		}
+	}
+	@include adaptiveValue("column-gap", 70, 35);
+	&>:first-child {
+		opacity: 0;
+		transform: translate(-50%, 0);
+	}
+	&>:last-child {
+		opacity: 0;
+		transform: translate(50%, 0);
+	}
+	&__image {
+		@media (min-width: $mobile) {
+			flex: 0 0 54%;
+		}
+		position: relative;
+		img {
+			max-width: 100%;
+		}
+		._watcher-view & {
+			opacity: 1;
+			transform: translate(0px,0px);
+			transition: all 0.6s ease 0s;
+		}
+	}
+
+	&__label-image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		bottom: 9%;
+		@include adaptiveValue("width", 129, 70);
+		@include adaptiveValue("height", 148, 80);
+		background: rgba(113, 179, 198, 0.85);
+		border-radius: rem(3);
+		font-family: "Dosis";
+		font-weight: 600;
+		@include adaptiveValue("font-size", 25, 16);
+		line-height: 1.4;
+		letter-spacing: 0.045em;
+		color: #ffffff;
+		@media (min-width: $mobile) {
+			&--right {
+				right: 0;
+				transform: translate(50%, 0px);
+			}
+			&--left {
+				left: 0;
+				transform: translate(-50%, 0px);
+			}
+		}
+		@media (max-width: $mobile) {
+			left: 50%;
+			transform: translate(-50%, 0);
+		}
+	}
+
+	&__content {
+		flex: 1 1 auto;
+		text-align: center;
+		._watcher-view & {
+			opacity: 1;
+			transform: translate(0px,0px);
+			transition: all 0.6s ease 0s;
+		}
+	}
+
+	&__title {
+		font-family: "Dosis";
+		font-weight: 600;
+		@include adaptiveValue("font-size", 46, 28, 0, 1110, 768);
+		line-height: 1.33;
+		letter-spacing: 0.045em;
+		color: #264a51;
+	}
+
+	&__description {
+		line-height: 1.72;
+		&:not(:last-child) {
+			margin-bottom: rem(16);
+		}
+	}
+
+	&__button {
+	}
+}
+//========================================================================================================================================================
+.get-off {
+	background: url("@img/get-off/bg.jpg") bottom / cover no-repeat;
+	@include adaptiveValue("height", 555, 400);
+	position: relative;
+	display: flex;
+	overflow: hidden;
+	&::before {
+		content: "";
+		width: 100%;
+		height: 100%;
+		background: rgba(93, 155, 201, 0.69);
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	&__container {
+		max-width: rem(460);
+		align-self: center;
+		position: relative;
+		z-index: 5;
+		text-align: center;
+		opacity: 0;
+		&._watcher-view {
+			animation: downScale 1.5s ease-in-out;
+			opacity: 1;
+		}
+	}
+
+	&__title {
+		font-family: "Dosis";
+		font-weight: 600;
+		@include adaptiveValue("font-size", 46, 36);
+		line-height: 1.33;
+		letter-spacing: 0.045em;
+		color: #264a51;
+		&:not(:last-child) {
+			margin-bottom: rem(15);
+		}
+	}
+
+	&__description {
+		letter-spacing: 0.045em;
+		color: #fff;
+		line-height: 1.7;
+		&:not(:last-child) {
+			margin-bottom: rem(23);
+		}
+	}
+
+	&__form {
+		&:not(:last-child) {
+			margin-bottom: rem(23);
+		}
+	}
+}
+//========================================================================================================================================================
+@keyframes titleAnimation {
+	0% {
+		opacity: 0;
+		transform: translate(-200%, 0) scale(0.7);
+	}
+	30% {
+		opacity: 0.3;
+		transform: translate(-200%, 0) scale(0.7);
+	}
+	70% {
+		opacity: 0.6;
+		transform: translate(0, 0) scale(0.7);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(0, 0) scale(1);
+	}
+}
+
+@keyframes  downScale {
+	0% {
+		opacity: 0;
+		transform: translate(0, 200%) scale(0.7);
+	}
+	30% {
+		opacity: 0.3;
+		transform: translate(0, 200%) scale(0.7);
+	}
+	70% {
+		opacity: 0.6;
+		transform: translate(0, 0) scale(0.7);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(0, 0) scale(1);
+	}
+}
