@@ -7,5 +7,6 @@ My single-page website about furniture is a contemporary space designed using th
 - GULP & WEBPACK
 - Responsive adaptive
 - Swiper.js
+- Css Animations
 # Preview:
 [Greenery](https://greenery-lundoger.netlify.app/)
